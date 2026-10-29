@@ -1,0 +1,834 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Book Appointment | PawCare Pet Clinic</title>
+  <meta name="description" content="Book a veterinary appointment for your pet at PawCare Pet Clinic.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --green: #073f36;
+      --orange: #ff5a0a;
+      --cream: #fffaf2;
+      --light-green: #eaf4ed;
+      --text: #64716a;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--green);
+      font-family: "Poppins", sans-serif;
+    }
+
+    input, select, textarea, button {
+      font: inherit;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .appointment-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 75px 7% 95px;
+      color: white;
+      background: var(--green);
+    }
+
+    .appointment-hero::before {
+      content: "🐾";
+      position: absolute;
+      right: 8%;
+      top: 15px;
+      font-size: 180px;
+      opacity: 0.08;
+      transform: rotate(-18deg);
+    }
+
+    .hero-inner {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #ff9b68;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .appointment-hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(35px, 5vw, 58px);
+      line-height: 1.2;
+    }
+
+    .appointment-hero h1 span {
+      color: #ff9b68;
+    }
+
+    .appointment-hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #dbe9e2;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .breadcrumb {
+      margin-top: 23px;
+      font-size: 12px;
+      color: #dbe9e2;
+    }
+
+    .breadcrumb a {
+      color: #ff9b68;
+    }
+
+    .booking-section {
+      padding: 65px 7% 85px;
+    }
+
+    .booking-layout {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .booking-info {
+      padding: 35px;
+      border-radius: 24px;
+      background: var(--green);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-info h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      line-height: 1.35;
+    }
+
+    .booking-info > p {
+      margin: 0 0 28px;
+      color: #dbe9e2;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .benefit-icon {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.12);
+      font-size: 21px;
+    }
+
+    .benefit h3 {
+      margin: 2px 0 5px;
+      font-size: 14px;
+    }
+
+    .benefit p {
+      margin: 0;
+      color: #dbe9e2;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .info-bottom {
+      margin-top: 32px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.09);
+      font-size: 12px;
+      line-height: 1.9;
+      color: #e5f0e9;
+    }
+
+    .booking-card {
+      padding: 35px;
+      border-radius: 24px;
+      background: white;
+      border: 1px solid #edf0e9;
+      box-shadow: 0 18px 50px rgba(7,63,54,0.07);
+    }
+
+    .booking-card h2 {
+      margin: 0 0 8px;
+      font-size: 27px;
+    }
+
+    .booking-card .subtitle {
+      margin: 0 0 28px;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .form-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 25px 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #edf0e9;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .form-heading span {
+      display: grid;
+      place-items: center;
+      width: 29px;
+      height: 29px;
+      border-radius: 9px;
+      background: var(--light-green);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 17px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px 14px;
+      border: 1px solid #dfe7df;
+      border-radius: 11px;
+      outline: none;
+      background: #fcfdfb;
+      color: var(--green);
+      font-size: 12px;
+      transition: 0.25s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,90,10,0.09);
+    }
+
+    .field textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .required-note {
+      margin: 0 0 18px;
+      color: var(--text);
+      font-size: 11px;
+    }
+
+    .book-btn {
+      width: 100%;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      background: var(--orange);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .book-btn:hover {
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 12px;
+      background: var(--light-green);
+      color: var(--green);
+      font-size: 12px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .contact-help {
+      padding: 0 7% 75px;
+    }
+
+    .help-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 35px;
+      border-radius: 22px;
+      background: #fff0e7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .help-inner h2 {
+      margin: 0 0 9px;
+      font-size: 25px;
+    }
+
+    .help-inner p {
+      margin: 0;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .call-btn {
+      display: inline-block;
+      flex-shrink: 0;
+      padding: 14px 22px;
+      border-radius: 11px;
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .call-btn:hover {
+      background: var(--orange);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-info {
+        order: 2;
+      }
+
+      .booking-card {
+        order: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .appointment-hero {
+        padding: 58px 5% 70px;
+      }
+
+      .booking-section {
+        padding: 45px 5% 60px;
+      }
+
+      .booking-info,
+      .booking-card {
+        padding: 24px 19px;
+        border-radius: 18px;
+      }
+
+      .booking-card h2 {
+        font-size: 23px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .contact-help {
+        padding: 0 5% 55px;
+      }
+
+      .help-inner {
+        padding: 25px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SAME NAVBAR -->
+  <header class="header">
+    <a href="index.html#home" class="logo">
+      <span class="logo-icon">🐾</span>
+      <span>
+        Paw<span>Care</span>
+        <small>Pet Clinic &amp; Care</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#home">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="emergency" href="tel:+919876543210">
+        ☎ <span>+91 98765 43210<small>Clinic Contact</small></span>
+      </a>
+      <a href="appointment.html" class="btn btn-primary">
+        Book Appointment
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="appointment-hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Your Pet Comes First</span>
+      <h1>Book Your Pet's <span>Appointment</span></h1>
+      <p>
+        Schedule your pet's next checkup with PawCare. Share a few details
+        and choose a convenient date for your visit.
+      </p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &nbsp; / &nbsp; Book Appointment
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section">
+    <div class="booking-layout">
+
+      <aside class="booking-info reveal">
+        <span class="eyebrow">Welcome to PawCare</span>
+        <h2>Healthy Pets.<br>Happy Families.</h2>
+        <p>
+          From routine checkups to preventive care, we're here to help
+          you look after your furry family members.
+        </p>
+
+        <div class="benefit">
+          <div class="benefit-icon">🩺</div>
+          <div>
+            <h3>Personalized Care</h3>
+            <p>Care recommendations tailored to your pet's needs.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">🐶</div>
+          <div>
+            <h3>Pet-Friendly Visits</h3>
+            <p>A welcoming experience for pets and their families.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">📅</div>
+          <div>
+            <h3>Convenient Scheduling</h3>
+            <p>Choose your preferred date and time for a visit.</p>
+          </div>
+        </div>
+
+        <div class="info-bottom">
+          <strong>Need help booking?</strong><br>
+          Call us at <a href="tel:+919876543210" style="color:#ff9b68;">
+            +91 98765 43210
+          </a><br>
+          Please call to confirm your appointment availability.
+        </div>
+      </aside>
+
+      <div class="booking-card reveal">
+        <h2>Appointment Form 🐾</h2>
+        <p class="subtitle">
+          Complete the form below to prepare your appointment request.
+        </p>
+
+        <form id="appointmentForm">
+
+          <div class="form-heading">
+            <span>👤</span> Owner Information
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="ownerName">Full Name *</label>
+              <input id="ownerName" name="ownerName" type="text"
+                placeholder="Your full name" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input id="phone" name="phone" type="tel"
+                placeholder="Your contact number"
+                autocomplete="tel" pattern="[0-9+\s()-]{8,18}" required>
+            </div>
+
+            <div class="field full">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email"
+                placeholder="you@example.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-heading">
+            <span>🐕</span> Pet Information
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="petName">Pet's Name *</label>
+              <input id="petName" name="petName" type="text"
+                placeholder="Your pet's name" required>
+            </div>
+
+            <div class="field">
+              <label for="petType">Pet Type *</label>
+              <select id="petType" name="petType" required>
+                <option value="">Select type</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Bird</option>
+                <option>Rabbit</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="breed">Breed</label>
+              <input id="breed" name="breed" type="text"
+                placeholder="e.g. Labrador">
+            </div>
+
+            <div class="field">
+              <label for="age">Pet's Age</label>
+              <input id="age" name="age" type="text"
+                placeholder="e.g. 2 years">
+            </div>
+          </div>
+
+          <div class="form-heading">
+            <span>📅</span> Appointment Details
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="service">Choose Service *</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option>General Checkup</option>
+                <option>Vaccination</option>
+                <option>Dental Care</option>
+                <option>Diagnostics</option>
+                <option>Surgery Consultation</option>
+                <option>Nutrition Advice</option>
+                <option>Grooming</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="doctor">Preferred Doctor</label>
+              <select id="doctor" name="doctor">
+                <option value="">Any available doctor</option>
+                <option>Dr. A (Update with real doctor)</option>
+                <option>Dr. B (Update with real doctor)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="date">Preferred Date *</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+
+            <div class="field">
+              <label for="time">Preferred Time *</label>
+              <select id="time" name="time" required>
+                <option value="">Select time</option>
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="03:00 PM">03:00 PM</option>
+                <option value="04:00 PM">04:00 PM</option>
+                <option value="05:00 PM">05:00 PM</option>
+                <option value="06:00 PM">06:00 PM</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="reason">Symptoms / Additional Notes</label>
+              <textarea id="reason" name="reason"
+                placeholder="Tell us about your pet's needs or reason for the visit..."></textarea>
+            </div>
+          </div>
+
+          <p class="required-note">* Required fields</p>
+
+          <button type="submit" class="book-btn">
+            Request Appointment →
+          </button>
+
+          <div class="form-status" id="formStatus"
+            role="status" aria-live="polite"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HELP CTA -->
+  <section class="contact-help reveal">
+    <div class="help-inner">
+      <div>
+        <h2>Have Questions Before Booking?</h2>
+        <p>
+          Contact our clinic for assistance and to confirm available slots.
+        </p>
+      </div>
+      <a href="tel:+919876543210" class="call-btn">
+        ☎ Call the Clinic
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div>
+        <a href="index.html#home" class="logo">
+          <span class="logo-icon">🐾</span>
+          <span>
+            Paw<span>Care</span>
+            <small>Pet Clinic &amp; Care</small>
+          </span>
+        </a>
+        <p>
+          Caring for your pets with compassion, attention, and a commitment
+          to their wellbeing.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="appointment.html">Book Appointment</a>
+      </div>
+
+      <div>
+        <h4>Contact Us</h4>
+        <p>📍 Add your clinic address</p>
+        <p>☎ +91 98765 43210</p>
+        <p>✉ hello@pawcare.example</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> PawCare Pet Clinic. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav");
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.textContent = open ? "✕" : "☰";
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.textContent = "☰";
+        });
+      });
+    }
+
+    // Set minimum appointment date to today
+    const dateInput = document.getElementById("date");
+    const today = new Date();
+    const localToday = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000
+    ).toISOString().split("T")[0];
+
+    dateInput.min = localToday;
+
+    // Footer year
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // Appointment form demo
+    // This opens the visitor's email application; it does not confirm a booking.
+    const form = document.getElementById("appointmentForm");
+    const status = document.getElementById("formStatus");
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+
+      const fields = [
+        ["Owner Name", "ownerName"],
+        ["Phone", "phone"],
+        ["Email", "email"],
+        ["Pet Name", "petName"],
+        ["Pet Type", "petType"],
+        ["Breed", "breed"],
+        ["Pet Age", "age"],
+        ["Service", "service"],
+        ["Preferred Doctor", "doctor"],
+        ["Preferred Date", "date"],
+        ["Preferred Time", "time"],
+        ["Symptoms / Notes", "reason"]
+      ];
+
+      const details = fields.map(([label, key]) => {
+        return label + ": " + (data.get(key) || "Not provided");
+      }).join("\n");
+
+      // Replace this with your actual clinic email.
+      const clinicEmail = "hello@pawcare.example";
+
+      const subject = encodeURIComponent(
+        "Appointment Request - " + data.get("petName")
+      );
+
+      const body = encodeURIComponent(details);
+
+      status.textContent =
+        "Your email application will open with your appointment request. " +
+        "Send the email to contact the clinic. Your appointment is not " +
+        "confirmed until the clinic confirms availability.";
+
+      status.classList.add("show");
+
+      window.location.href =
+        "mailto:" + clinicEmail +
+        "?subject=" + subject +
+        "&body=" + body;
+    });
+  </script>
+
+</body>
+</html>

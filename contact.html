@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | PawCare Pet Clinic</title>
+  <meta name="description" content="Contact PawCare Pet Clinic to book a veterinary appointment, ask about pet care, or enquire about our services.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --green: #073f36;
+      --green-light: #eaf4ed;
+      --orange: #ff5a0a;
+      --cream: #fffaf2;
+      --text: #52635c;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--cream);
+      color: var(--green);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 85px 7% 95px;
+      background: var(--green);
+      color: white;
+    }
+
+    .contact-hero::before,
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-hero::before {
+      width: 350px;
+      height: 350px;
+      right: -80px;
+      top: -140px;
+      background: rgba(255, 90, 10, 0.18);
+    }
+
+    .contact-hero::after {
+      width: 240px;
+      height: 240px;
+      left: 42%;
+      bottom: -170px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .contact-hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.18;
+      color: white;
+    }
+
+    .contact-hero h1 span {
+      color: #ff9b68;
+    }
+
+    .contact-hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #dcebe3;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .breadcrumb {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #dcebe3;
+    }
+
+    .breadcrumb a {
+      color: #ff9b68;
+    }
+
+    .contact-section {
+      padding: 80px 7%;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-layout {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .contact-info {
+      padding: 36px;
+      border-radius: 24px;
+      background: var(--green);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-info::after {
+      content: "🐾";
+      position: absolute;
+      right: -5px;
+      bottom: -28px;
+      font-size: 150px;
+      opacity: 0.07;
+      transform: rotate(-20deg);
+    }
+
+    .contact-info h3 {
+      font-size: 27px;
+      margin: 0 0 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info > p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #d5e5dc;
+      margin: 0 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin: 24px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      font-size: 21px;
+    }
+
+    .info-item h4 {
+      font-size: 14px;
+      margin: 0 0 5px;
+      color: white;
+    }
+
+    .info-item p,
+    .info-item a {
+      font-size: 12px;
+      line-height: 1.8;
+      margin: 0;
+      color: #d5e5dc;
+      overflow-wrap: anywhere;
+    }
+
+    .info-item a:hover {
+      color: #ff9b68;
+    }
+
+    .social-note {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      color: #d5e5dc;
+      font-size: 12px;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form-card {
+      padding: 36px;
+      background: white;
+      border: 1px solid #edf0e9;
+      border-radius: 24px;
+      box-shadow: 0 15px 45px rgba(7,63,54,0.06);
+    }
+
+    .contact-form-card h3 {
+      font-size: 26px;
+      margin: 0 0 8px;
+    }
+
+    .form-description {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text);
+      margin: 0 0 26px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 19px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 19px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #e1e8e1;
+      border-radius: 11px;
+      background: #fbfcf9;
+      color: var(--green);
+      outline: none;
+      font-size: 13px;
+      transition: 0.25s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,90,10,0.09);
+      background: white;
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: var(--orange);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .submit-btn:hover {
+      background: #e84b00;
+      transform: translateY(-2px);
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 13px;
+      border-radius: 10px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .hours-section {
+      padding: 10px 7% 80px;
+    }
+
+    .hours-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .hours-card {
+      padding: 28px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #edf0e9;
+      transition: 0.3s;
+    }
+
+    .hours-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(7,63,54,0.07);
+    }
+
+    .hours-card .card-icon {
+      font-size: 29px;
+      margin-bottom: 15px;
+    }
+
+    .hours-card h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .hours-card p {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .map-section {
+      padding: 0 7% 80px;
+    }
+
+    .map-box {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 230px;
+      padding: 40px 25px;
+      border-radius: 24px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .map-box h3 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
+
+    .map-box p {
+      max-width: 550px;
+      margin: 0 auto 20px;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .map-link {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .map-link:hover {
+      background: var(--orange);
+    }
+
+    .contact-cta {
+      margin: 0 7% 80px;
+      padding: 42px;
+      border-radius: 24px;
+      background: #fff0e7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .contact-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+    }
+
+    .contact-cta p {
+      margin: 0;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .cta-button {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 15px 24px;
+      border-radius: 11px;
+      background: var(--orange);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cta-button:hover {
+      background: var(--green);
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 99;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hours-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 28px;
+      }
+
+      .contact-cta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-hero {
+        padding: 65px 5% 70px;
+      }
+
+      .contact-section {
+        padding: 55px 5%;
+      }
+
+      .hours-section {
+        padding: 0 5% 55px;
+      }
+
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+      }
+
+      .map-section {
+        padding: 0 5% 55px;
+      }
+
+      .map-box {
+        padding: 35px 20px;
+      }
+
+      .contact-cta {
+        margin: 0 5% 55px;
+        padding: 28px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SAME NAVBAR -->
+  <header class="header">
+    <a href="index.html#home" class="logo">
+      <span class="logo-icon">🐾</span>
+      <span>
+        Paw<span>Care</span>
+        <small>Pet Clinic &amp; Care</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#home">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="emergency" href="tel:+919876543210">
+        ☎ <span>+91 98765 43210<small>Clinic Contact</small></span>
+      </a>
+      <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="hero-content">
+      <span class="eyebrow">We're Here For You</span>
+      <h1>Let's Talk About Your <span>Pet's Health</span></h1>
+      <p>
+        Have a question or need to book a visit? Our team is ready to help
+        you give your furry family member the care they deserve.
+      </p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &nbsp; / &nbsp; Contact Us
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT DETAILS + FORM -->
+  <section class="contact-section" id="contact-form">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>We'd Love to Hear From You</h2>
+      <p>
+        Contact us for appointments, pet wellness questions, and information
+        about our veterinary services.
+      </p>
+    </div>
+
+    <div class="contact-layout">
+
+      <div class="contact-info reveal">
+        <h3>Contact Information</h3>
+        <p>
+          Reach out to our clinic. We're happy to help you find the right
+          care for your pet.
+        </p>
+
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Our Clinic</h4>
+            <p>Replace with your complete clinic address</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <h4>Email Us</h4>
+            <a href="mailto:hello@pawcare.example">
+              hello@pawcare.example
+            </a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">🕒</div>
+          <div>
+            <h4>Clinic Hours</h4>
+            <p>Monday – Saturday<br>9:00 AM – 7:00 PM</p>
+          </div>
+        </div>
+
+        <div class="social-note">
+          🐾 Your pet's comfort and wellbeing are always important to us.
+          Please call the clinic to confirm availability before visiting.
+        </div>
+      </div>
+
+      <div class="contact-form-card reveal">
+        <h3>Send Us a Message</h3>
+        <p class="form-description">
+          Fill in the details below and tell us how we can help.
+        </p>
+
+        <form id="contactForm">
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name"
+                placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone"
+                placeholder="Enter phone number"
+                pattern="[0-9+\s()-]{8,18}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email"
+                placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="pet">Pet Type *</label>
+              <select id="pet" name="pet" required>
+                <option value="">Select your pet</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Bird">Bird</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="service">Service Required *</label>
+              <select id="service" name="service" required>
+                <option value="">Choose a service</option>
+                <option value="General Checkup">General Checkup</option>
+                <option value="Vaccination">Vaccination</option>
+                <option value="Dental Care">Dental Care</option>
+                <option value="Diagnostics">Diagnostics</option>
+                <option value="Surgery Consultation">Surgery Consultation</option>
+                <option value="Nutrition Advice">Nutrition Advice</option>
+                <option value="Grooming">Grooming</option>
+                <option value="Other Enquiry">Other Enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message"
+                placeholder="Tell us about your pet and how we can help..."
+                required></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Send Message &nbsp; →
+          </button>
+
+          <div class="form-status" id="formStatus" role="status"
+            aria-live="polite"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPENING HOURS -->
+  <section class="hours-section">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Plan Your Visit</span>
+      <h2>We're Ready to Welcome You</h2>
+      <p>
+        Check our clinic hours and contact us to arrange your pet's visit.
+      </p>
+    </div>
+
+    <div class="hours-grid">
+
+      <article class="hours-card reveal">
+        <div class="card-icon">🩺</div>
+        <h3>Veterinary Care</h3>
+        <p>
+          General consultations and wellness visits.<br>
+          Monday – Saturday: 9 AM – 7 PM
+        </p>
+      </article>
+
+      <article class="hours-card reveal">
+        <div class="card-icon">💉</div>
+        <h3>Vaccinations</h3>
+        <p>
+          Contact us to schedule vaccinations and routine preventive care.
+        </p>
+      </article>
+
+      <article class="hours-card reveal">
+        <div class="card-icon">❤️</div>
+        <h3>Need Urgent Help?</h3>
+        <p>
+          Call your local emergency veterinary provider for urgent care
+          outside our confirmed clinic hours.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="map-box reveal">
+      <div>
+        <span class="eyebrow">Find Us</span>
+        <h3>Visit PawCare Pet Clinic</h3>
+        <p>
+          Add your real clinic address to connect visitors with directions
+          and make your clinic easier to find.
+        </p>
+        <a class="map-link"
+          href="https://www.google.com/maps"
+          target="_blank" rel="noopener noreferrer">
+          Open Google Maps ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="contact-cta reveal">
+    <div>
+      <h2>Every Pet Deserves Loving Care 🐾</h2>
+      <p>Have questions? Call us or send a message to get started.</p>
+    </div>
+    <a class="cta-button" href="tel:+919876543210">
+      Call the Clinic →
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div>
+        <a href="index.html#home" class="logo">
+          <span class="logo-icon">🐾</span>
+          <span>
+            Paw<span>Care</span>
+            <small>Pet Clinic &amp; Care</small>
+          </span>
+        </a>
+        <p>
+          Caring for your pets with compassion, attention, and a commitment
+          to their wellbeing.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Our Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Contact Details</h4>
+        <p>📍 Add your clinic address</p>
+        <p>☎ +91 98765 43210</p>
+        <p>✉ hello@pawcare.example</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> PawCare Pet Clinic. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top"
+    title="Back to top">↑</button>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav");
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.textContent = "☰";
+        });
+      });
+    }
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // Footer year
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    // Back to top
+    const backTop = document.getElementById("backTop");
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Frontend demo form: opens the visitor's email application.
+    // For automatic submissions, connect this form to a backend/API.
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+
+    contactForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!contactForm.reportValidity()) return;
+
+      const data = new FormData(contactForm);
+
+      const name = data.get("name").trim();
+      const phone = data.get("phone").trim();
+      const email = data.get("email").trim();
+      const pet = data.get("pet");
+      const service = data.get("service");
+      const message = data.get("message").trim();
+
+      // Replace this with your actual clinic email address.
+      const clinicEmail = "hello@pawcare.example";
+
+      const subject = encodeURIComponent(
+        "Pet Clinic Enquiry - " + name
+      );
+
+      const body = encodeURIComponent(
+        "Name: " + name +
+        "\nPhone: " + phone +
+        "\nEmail: " + (email || "Not provided") +
+        "\nPet Type: " + pet +
+        "\nService: " + service +
+        "\nMessage: " + message
+      );
+
+      formStatus.textContent =
+        "Your email application will open with the enquiry details. " +
+        "Please send the email to submit your message.";
+
+      formStatus.classList.add("show");
+
+      window.location.href =
+        "mailto:" + clinicEmail +
+        "?subject=" + subject +
+        "&body=" + body;
+    });
+  </script>
+
+</body>
+</html>

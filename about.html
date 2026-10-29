@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover PawCare Pet Clinic, our veterinary team, mission, values and commitment to compassionate pet healthcare.">
+  <title>About Us | PawCare Pet Clinic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ABOUT PAGE */
+    .about-hero {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+      padding: 65px 7%;
+      overflow: hidden;
+      background: linear-gradient(120deg, #fff5e9, #eef5ed);
+    }
+
+    .about-hero-content { position: relative; z-index: 1; }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: #6b7374;
+      margin-bottom: 22px;
+    }
+
+    .breadcrumb a { color: var(--green); font-weight: 600; }
+
+    .about-hero h1 {
+      font-size: clamp(38px, 4.3vw, 58px);
+      line-height: 1.18;
+      letter-spacing: -1.5px;
+      color: var(--green);
+    }
+
+    .about-hero h1 span { color: var(--orange); }
+
+    .about-hero-content > p {
+      max-width: 510px;
+      margin: 20px 0 25px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .about-hero-image {
+      height: 340px;
+      position: relative;
+    }
+
+    .about-hero-image img {
+      height: 100%;
+      border-radius: 100px 22px 100px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .image-badge {
+      position: absolute;
+      left: -25px;
+      bottom: 22px;
+      padding: 16px 22px;
+      border-radius: 16px;
+      background: white;
+      color: var(--green);
+      box-shadow: var(--shadow);
+    }
+
+    .image-badge strong { display: block; font-size: 22px; }
+    .image-badge span { font-size: 11px; color: var(--muted); }
+
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .story-images {
+      position: relative;
+      padding: 0 35px 35px 0;
+    }
+
+    .story-images img {
+      height: 390px;
+      border-radius: 25px;
+    }
+
+    .story-images::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+      width: 65%;
+      height: 65%;
+      background: #ffe3cd;
+      border-radius: 25px;
+    }
+
+    .story-content .eyebrow {
+      margin-bottom: 15px;
+      color: var(--green);
+    }
+
+    .story-content h2,
+    .values-heading h2,
+    .team-heading h2,
+    .cta-content h2 {
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.3;
+      color: var(--green);
+    }
+
+    .story-content > p {
+      margin: 18px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      margin: 23px 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .check-list li span {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      color: #08774e;
+      background: #d5f5e5;
+    }
+
+    .values-section { background: #f4f7f1; }
+
+    .values-heading,
+    .team-heading { text-align: center; margin-bottom: 35px; }
+
+    .values-heading p,
+    .team-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .value-card {
+      padding: 30px 25px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #edf0e9;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .value-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 20px;
+      border-radius: 17px;
+      font-size: 27px;
+      background: #d5f5e5;
+    }
+
+    .value-card:nth-child(2) .value-icon { background: #ffe4ce; }
+    .value-card:nth-child(3) .value-icon { background: #e4e5ff; }
+
+    .value-card h3 { font-size: 17px; color: var(--green); margin-bottom: 10px; }
+    .value-card p { font-size: 12px; line-height: 1.9; color: var(--muted); }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 45px 7%;
+      background: var(--green);
+      color: white;
+    }
+
+    .about-stat { text-align: center; padding: 10px; }
+    .about-stat strong { display: block; font-size: clamp(25px, 3vw, 38px); }
+    .about-stat span { color: #d3e5dc; font-size: 12px; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(7, 63, 54, .05);
+      transition: transform .3s;
+    }
+
+    .team-card:hover { transform: translateY(-6px); }
+
+    .team-card img { height: 235px; object-position: center 25%; }
+    .team-card h3 { font-size: 14px; margin-top: 16px; }
+    .team-card p { color: var(--muted); font-size: 11px; margin: 5px 0 20px; }
+
+    .about-cta {
+      margin: 10px 5% 60px;
+      padding: 45px;
+      border-radius: 25px;
+      background: linear-gradient(115deg, #073f36, #0b594b);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .cta-content h2 { color: white; }
+    .cta-content p { color: #d3e5dc; font-size: 13px; margin-top: 12px; }
+
+    .about-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .about-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .about-hero { padding: 50px 5%; gap: 25px; }
+      .story-section { gap: 35px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-card img { height: 250px; }
+    }
+
+    @media (max-width: 760px) {
+      .about-hero { grid-template-columns: 1fr; padding: 42px 6%; }
+      .about-hero-image { height: 300px; margin: 10px 8px 0; }
+      .image-badge { left: -8px; }
+      .story-section { grid-template-columns: 1fr; gap: 35px; }
+      .story-images img { height: 310px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 35px 5%; }
+      .team-grid { gap: 12px; }
+      .team-card img { height: 190px; }
+      .team-card h3 { font-size: 12px; }
+      .about-cta { flex-direction: column; align-items: flex-start; padding: 30px 23px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .about-reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SAME NAVBAR AS HOMEPAGE -->
+  <header class="header">
+    <a href="index.html#home" class="logo">
+      <span class="logo-icon">🐾</span>
+      <span>Paw<span>Care</span><small>Pet Clinic & Care</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#home">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="service.html">Services</a>
+      <a href="gallary">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="emergency" href="tel:+919876543210">
+        ☎ <span>+91 98765 43210<small>24/7 Emergency</small></span>
+      </a>
+      <a href="appointment.html" class="btn btn-primary">
+        ▣ Book Appointment
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="about-hero-content">
+       
+
+        <span class="eyebrow">🐾 Get to Know PawCare</span>
+
+        <h1>Every Pet Deserves<br><span>Love & Care.</span></h1>
+
+        <p>
+          We believe pets are family, not just animals. Our passionate
+          veterinary team combines modern medical care with kindness,
+          comfort and a personal touch for every furry friend.
+        </p>
+
+       
+      </div>
+
+      <div class="about-hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1100&q=85"
+          alt="Veterinarian providing loving care to a dog"
+          fetchpriority="high"
+        >
+        <div class="image-badge">
+          <strong>5000+</strong>
+          <span>Happy pets cared for</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="section story-section" id="our-story">
+      <div class="story-images about-reveal">
+        <img
+          src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?auto=format&fit=crop&w=900&q=85"
+          alt="Veterinary professional caring for an animal"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="story-content about-reveal">
+        <span class="eyebrow">OUR STORY</span>
+
+        <h2>A Little More Care.<br>A Lot More Love.</h2>
+
+        <p>
+          PawCare was created with one simple belief: every pet deserves
+          to feel safe, healthy and loved. We aim to make veterinary visits
+          more comfortable for pets and more reassuring for their families.
+        </p>
+
+        <p>
+          From preventive checkups and vaccinations to diagnostics and
+          ongoing wellness support, our goal is to provide thoughtful care
+          at every stage of your pet's life.
+        </p>
+
+        <ul class="check-list">
+          <li><span>✓</span> Compassionate, pet-first approach</li>
+          <li><span>✓</span> Focus on preventive healthcare</li>
+          <li><span>✓</span> Clear guidance for pet parents</li>
+          <li><span>✓</span> Comfortable and welcoming environment</li>
+        </ul>
+
+        <a href="service.html" class="btn btn-primary">
+          Explore Our Services →
+        </a>
+      </div>
+    </section>
+
+    <!-- MISSION & VALUES -->
+    <section class="section values-section">
+      <div class="values-heading about-reveal">
+        <span class="section-icon">🐾</span>
+        <h2>What Makes PawCare Special?</h2>
+        <p>Our values guide every interaction with pets and their families.</p>
+      </div>
+
+      <div class="values-grid">
+        <article class="value-card about-reveal">
+          <div class="value-icon">💚</div>
+          <h3>Our Mission</h3>
+          <p>
+            To provide compassionate, responsible veterinary care that
+            supports healthier pets and happier families.
+          </p>
+        </article>
+
+        <article class="value-card about-reveal">
+          <div class="value-icon">🎯</div>
+          <h3>Our Vision</h3>
+          <p>
+            To build a trusted pet-care community where every pet receives
+            attention, respect and appropriate medical support.
+          </p>
+        </article>
+
+        <article class="value-card about-reveal">
+          <div class="value-icon">🤝</div>
+          <h3>Our Promise</h3>
+          <p>
+            To listen carefully, communicate clearly and help pet parents
+            make informed decisions about their pets' wellbeing.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLINIC STATISTICS -->
+    <section class="about-stats">
+      <div class="about-stat">
+        <strong>5000+</strong>
+        <span>Happy Pets</span>
+      </div>
+      <div class="about-stat">
+        <strong>10+</strong>
+        <span>Veterinary Professionals</span>
+      </div>
+      <div class="about-stat">
+        <strong>7+</strong>
+        <span>Years of Experience</span>
+      </div>
+      <div class="about-stat">
+        <strong>24/7</strong>
+        <span>Emergency Assistance</span>
+      </div>
+    </section>
+
+    <!-- OUR TEAM -->
+    <section class="section">
+      <div class="team-heading about-reveal">
+        <span class="section-icon">🐾</span>
+        <h2>Meet the Caring Hands Behind PawCare</h2>
+        <p>Our team is dedicated to your pet's health and happiness.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card about-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=550&q=80"
+            alt="Veterinary professional"
+            loading="lazy"
+          >
+          <h3>Dr. Anjali Sharma</h3>
+          <p>Veterinary Surgeon</p>
+        </article>
+
+        <article class="team-card about-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=550&q=80"
+            alt="Medical professional"
+            loading="lazy"
+          >
+          <h3>Dr. Rahul Mehta</h3>
+          <p>Pet Specialist</p>
+        </article>
+
+        <article class="team-card about-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=550&q=80"
+            alt="Healthcare professional"
+            loading="lazy"
+          >
+          <h3>Dr. Priya Singh</h3>
+          <p>Dental & Wellness</p>
+        </article>
+
+        <article class="team-card about-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=550&q=80"
+            alt="Medical professional"
+            loading="lazy"
+          >
+          <h3>Dr. Karan Verma</h3>
+          <p>Emergency Care</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+      <div class="cta-content">
+        <h2>Your Pet's Health Is Our Priority.</h2>
+        <p>Give your furry family member the care and attention they deserve.</p>
+      </div>
+
+      <a href="appointment.html" class="btn btn-primary">
+        Book an Appointment →
+      </a>
+    </section>
+  </main>
+
+  <!-- SAME FOOTER STYLE -->
+  <footer class="footer" id="contact">
+    <div class="footer-main">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo-icon">🐾</span>
+          <span>Paw<span>Care</span><small>Pet Clinic & Care</small></span>
+        </a>
+        <p>Compassionate care for the pets who make our lives better.</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="index.html#home">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#services">Our Services</a>
+        <a href="index.html#doctors">Our Doctors</a>
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <p>📍 Your Clinic Address, India</p>
+        <p>☎ <a href="tel:+919876543210">+91 98765 43210</a></p>
+        <p>✉ hello@pawcare.example</p>
+      </div>
+
+      <div>
+        <h3>Clinic Hours</h3>
+        <p>Mon – Sat: 9 AM – 8 PM</p>
+        <p>Sunday: 10 AM – 4 PM</p>
+        <p>Emergency: Call before visiting</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> PawCare Pet Clinic. All rights reserved.</p>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        Back to top ↑
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Scroll reveal animations
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".about-reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
