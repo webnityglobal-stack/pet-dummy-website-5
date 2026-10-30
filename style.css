@@ -907,3 +907,62 @@ button, a {
   .stats-grid { gap: 8px; }
   .stat-card > span { font-size: 20px; }
 }
+/* MINIMUM SECTION SPACING */
+
+main > section.section {
+  padding: 5px 7% !important;
+  margin: 0 !important;
+  min-height: auto !important;
+}
+
+.hero {
+  padding-bottom: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+.section-heading {
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+}
+
+.section-heading h2,
+.section-heading p {
+  margin: 2px 0 !important;
+}
+
+.service-grid,
+.doctor-grid,
+.review-grid,
+.gallery-grid {
+  gap: 8px !important;
+  margin-top: 5px !important;
+}
+
+.about.section,
+.appointment.section {
+  gap: 6px !important;
+}
+
+.stats-grid {
+  margin-top: 4px !important;
+  gap: 6px !important;
+}
+
+.appointment-form {
+  padding: 12px !important;
+}
+
+.footer {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+}
+
+@media (max-width: 600px) {
+  main > section.section {
+    padding: 5px 4% !important;
+  }
+
+  .section-heading {
+    margin-bottom: 5px !important;
+  }
+}
