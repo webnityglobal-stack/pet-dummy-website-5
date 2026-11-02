@@ -597,13 +597,11 @@
       <a href="service.html">Services</a>
       <a href="gallary.html">Gallery</a>
       <a href="contact.html">Contact</a>
-    
 
-    <div class="header-actions">
-    
-      <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
-    </div>
-  </nav>
+      <div class="header-actions">
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+      </div>
+    </nav>
   </header>
 
   <!-- HERO -->
@@ -829,171 +827,229 @@
   </section>
 
   <!-- FOOTER -->
-  
-<!-- SAME FOOTER AS GALLERY PAGE -->
-<footer class="footer" id="contact">
-  <div class="footer-main">
+  <footer class="footer" id="contact">
+    <div class="footer-main">
 
-    <!-- BRAND -->
-    <div>
-      <a href="index.html" class="logo footer-logo">
-        <span class="logo-icon">🐾</span>
-        <span>
-          Paw<span>Care</span>
-          <small>Pet Clinic &amp; Care</small>
-        </span>
-      </a>
-
-      <p>
-        Compassionate care for the pets who make our lives better.
-      </p>
-    </div>
-
-    <!-- QUICK LINKS -->
-    <div>
-      <h3>Quick Links</h3>
-      <a href="index.html#home">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="service.html">Our Services</a>
-      <a href="gallary.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-      <a href="appointment.html">Book Appointment</a>
-    </div>
-
-    <!-- CONTACT DETAILS -->
-    <div>
-      <h3>Contact Us</h3>
-      <p>📍 Your Clinic Address, India</p>
-      <p>
-        ☎ <a href="tel:+919876543210">+91 98765 43210</a>
-      </p>
-      <p>
-        ✉ <a href="mailto:hello@pawcare.example">
-          hello@pawcare.example
+      <!-- BRAND -->
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo-icon">🐾</span>
+          <span>
+            Paw<span>Care</span>
+            <small>Pet Clinic &amp; Care</small>
+          </span>
         </a>
+
+        <p>
+          Compassionate care for the pets who make our lives better.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <h3>Quick Links</h3>
+        <a href="index.html#home">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Our Services</a>
+        <a href="gallary.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="appointment.html">Book Appointment</a>
+      </div>
+
+      <!-- CONTACT DETAILS -->
+      <div>
+        <h3>Contact Us</h3>
+        <p>📍 Your Clinic Address, India</p>
+        <p>
+          ☎ <a href="tel:+919876543210">+91 98765 43210</a>
+        </p>
+        <p>
+          ✉ <a href="mailto:hello@pawcare.example">
+            hello@pawcare.example
+          </a>
+        </p>
+      </div>
+
+      <!-- CLINIC HOURS -->
+      <div>
+        <h3>Clinic Hours</h3>
+        <p>Mon – Sat: 9 AM – 8 PM</p>
+        <p>Sunday: 10 AM – 4 PM</p>
+        <p>Emergency: Call before visiting</p>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+      <p>
+        © <span id="currentYear"></span>
+        PawCare Pet Clinic. All rights reserved.
       </p>
+
+      <a href="#" id="backTop">Back to top ↑</a>
     </div>
+  </footer>
 
-    <!-- CLINIC HOURS -->
-    <div>
-      <h3>Clinic Hours</h3>
-      <p>Mon – Sat: 9 AM – 8 PM</p>
-      <p>Sunday: 10 AM – 4 PM</p>
-      <p>Emergency: Call before visiting</p>
-    </div>
-
-  </div>
-
-  <!-- COPYRIGHT -->
-  <div class="footer-bottom">
-    <p>
-      © <span id="currentYear"></span>
-      PawCare Pet Clinic. All rights reserved.
-    </p>
-
-    <a href="#" id="backTop">Back to top ↑</a>
-  </div>
-</footer>
-
-  <button class="back-top" id="backTop" aria-label="Back to top"
-    title="Back to top">↑</button>
+  <button class="back-top" id="backTopButton"
+    aria-label="Back to top" title="Back to top">↑</button>
 
   <script>
-    // Mobile navigation
+    // MOBILE NAVIGATION - FIXED
+
     const menuToggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
 
     if (menuToggle && nav) {
+
       menuToggle.addEventListener("click", () => {
-        const isOpen = nav.classList.toggle("active");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+        // Use the same OPEN class as the Services page
+        const isOpen = nav.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
         menuToggle.textContent = isOpen ? "✕" : "☰";
+
       });
 
+      // Close menu after clicking navigation links
       nav.querySelectorAll("a").forEach(link => {
+
         link.addEventListener("click", () => {
-          nav.classList.remove("active");
+
+          nav.classList.remove("open");
+
           menuToggle.setAttribute("aria-expanded", "false");
+
           menuToggle.textContent = "☰";
+
         });
+
       });
+
     }
 
-    // Scroll reveal animation
+    // SCROLL REVEAL ANIMATION
+
     const revealElements = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
+
       const observer = new IntersectionObserver(entries => {
+
         entries.forEach(entry => {
+
           if (entry.isIntersecting) {
+
             entry.target.classList.add("visible");
+
             observer.unobserve(entry.target);
+
           }
+
         });
+
       }, { threshold: 0.12 });
 
       revealElements.forEach(element => observer.observe(element));
+
     } else {
-      revealElements.forEach(element => element.classList.add("visible"));
+
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+
     }
 
-    // Footer year
+    // FOOTER YEAR
+
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
 
-    // Back to top
+    // BACK TO TOP
+
     const backTop = document.getElementById("backTop");
+    const backTopButton = document.getElementById("backTopButton");
 
-    backTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (backTop) {
+      backTop.addEventListener("click", event => {
+        event.preventDefault();
 
-    // Frontend demo form: opens the visitor's email application.
-    // For automatic submissions, connect this form to a backend/API.
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    if (backTopButton) {
+      backTopButton.addEventListener("click", () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      });
+    }
+
+    // CONTACT FORM
+
     const contactForm = document.getElementById("contactForm");
     const formStatus = document.getElementById("formStatus");
 
-    contactForm.addEventListener("submit", event => {
-      event.preventDefault();
+    if (contactForm && formStatus) {
 
-      if (!contactForm.reportValidity()) return;
+      contactForm.addEventListener("submit", event => {
 
-      const data = new FormData(contactForm);
+        event.preventDefault();
 
-      const name = data.get("name").trim();
-      const phone = data.get("phone").trim();
-      const email = data.get("email").trim();
-      const pet = data.get("pet");
-      const service = data.get("service");
-      const message = data.get("message").trim();
+        if (!contactForm.reportValidity()) return;
 
-      // Replace this with your actual clinic email address.
-      const clinicEmail = "hello@pawcare.example";
+        const data = new FormData(contactForm);
 
-      const subject = encodeURIComponent(
-        "Pet Clinic Enquiry - " + name
-      );
+        const name = data.get("name").trim();
+        const phone = data.get("phone").trim();
+        const email = data.get("email").trim();
+        const pet = data.get("pet");
+        const service = data.get("service");
+        const message = data.get("message").trim();
 
-      const body = encodeURIComponent(
-        "Name: " + name +
-        "\nPhone: " + phone +
-        "\nEmail: " + (email || "Not provided") +
-        "\nPet Type: " + pet +
-        "\nService: " + service +
-        "\nMessage: " + message
-      );
+        // Replace this with your actual clinic email address.
+        const clinicEmail = "hello@pawcare.example";
 
-      formStatus.textContent =
-        "Your email application will open with the enquiry details. " +
-        "Please send the email to submit your message.";
+        const subject = encodeURIComponent(
+          "Pet Clinic Enquiry - " + name
+        );
 
-      formStatus.classList.add("show");
+        const body = encodeURIComponent(
+          "Name: " + name +
+          "\nPhone: " + phone +
+          "\nEmail: " + (email || "Not provided") +
+          "\nPet Type: " + pet +
+          "\nService: " + service +
+          "\nMessage: " + message
+        );
 
-      window.location.href =
-        "mailto:" + clinicEmail +
-        "?subject=" + subject +
-        "&body=" + body;
-    });
+        formStatus.textContent =
+          "Your email application will open with the enquiry details. " +
+          "Please send the email to submit your message.";
+
+        formStatus.classList.add("show");
+
+        window.location.href =
+          "mailto:" + clinicEmail +
+          "?subject=" + subject +
+          "&body=" + body;
+
+      });
+
+    }
+
   </script>
 
 </body>

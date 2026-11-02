@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#073f36">
   <meta name="description" content="Explore PawCare veterinary services including pet checkups, vaccinations, diagnostics, surgery, dental care, grooming and emergency support.">
+
   <title>Our Services | PawCare Pet Clinic</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -21,7 +23,11 @@
       --service-muted: #6b7374;
     }
 
-    body { background: var(--service-cream); }
+    body {
+      background: var(--service-cream);
+    }
+
+    /* HERO SECTION */
 
     .service-hero {
       padding: 65px 7%;
@@ -33,17 +39,6 @@
       overflow: hidden;
     }
 
-    .service-breadcrumb {
-      font-size: 12px;
-      color: var(--service-muted);
-      margin-bottom: 22px;
-    }
-
-    .service-breadcrumb a {
-      color: var(--service-green);
-      font-weight: 600;
-    }
-
     .service-hero h1 {
       font-size: clamp(38px, 4.5vw, 60px);
       color: var(--service-green);
@@ -51,7 +46,9 @@
       letter-spacing: -1.5px;
     }
 
-    .service-hero h1 span { color: var(--service-orange); }
+    .service-hero h1 span {
+      color: var(--service-orange);
+    }
 
     .service-hero-content > p {
       margin: 20px 0 25px;
@@ -66,7 +63,9 @@
     }
 
     .service-hero-image img {
+      width: 100%;
       height: 100%;
+      object-fit: cover;
       border-radius: 28px 100px 28px 100px;
       box-shadow: 0 20px 45px rgba(7,63,54,.12);
     }
@@ -83,10 +82,22 @@
       color: var(--service-green);
     }
 
-    .service-float strong { display: block; font-size: 14px; }
-    .service-float p { font-size: 11px; color: var(--service-muted); }
+    .service-float strong {
+      display: block;
+      font-size: 14px;
+    }
 
-    .services-intro { text-align: center; margin-bottom: 35px; }
+    .service-float p {
+      font-size: 11px;
+      color: var(--service-muted);
+    }
+
+    /* SERVICES INTRO */
+
+    .services-intro {
+      text-align: center;
+      margin-bottom: 35px;
+    }
 
     .services-intro .tag {
       display: inline-block;
@@ -110,6 +121,8 @@
       margin-top: 10px;
     }
 
+    /* SERVICES GRID */
+
     .service-detail-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -131,25 +144,45 @@
       border-color: #d4e5d9;
     }
 
+    /* ICON + HEADING IN SAME ROW */
+
+    .service-card-heading {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      min-height: 58px;
+    }
+
     .service-detail-card .icon-box {
       width: 58px;
       height: 58px;
+      min-width: 58px;
       display: grid;
       place-items: center;
       border-radius: 17px;
       font-size: 27px;
       background: #d5f5e5;
-      margin-bottom: 20px;
+      margin-bottom: 0;
+      flex-shrink: 0;
     }
 
-    .service-detail-card:nth-child(3n + 2) .icon-box { background: #ffe4ce; }
-    .service-detail-card:nth-child(3n) .icon-box { background: #e4e5ff; }
+    .service-detail-card:nth-child(3n + 2) .icon-box {
+      background: #ffe4ce;
+    }
 
-    .service-detail-card h3 {
+    .service-detail-card:nth-child(3n) .icon-box {
+      background: #e4e5ff;
+    }
+
+    .service-card-heading h3 {
       color: var(--service-green);
-      font-size: 17px;
-      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.45;
+      margin: 0;
     }
+
+    /* CARD DESCRIPTION */
 
     .service-detail-card > p {
       color: var(--service-muted);
@@ -183,9 +216,14 @@
       color: var(--service-green);
       font-size: 12px;
       font-weight: 700;
+      transition: color .3s;
     }
 
-    .service-link:hover { color: var(--service-orange); }
+    .service-link:hover {
+      color: var(--service-orange);
+    }
+
+    /* CARE SECTION */
 
     .care-section {
       display: grid;
@@ -195,10 +233,15 @@
       background: white;
     }
 
-    .care-image { position: relative; height: 390px; }
+    .care-image {
+      position: relative;
+      height: 390px;
+    }
 
     .care-image img {
+      width: 100%;
       height: 100%;
+      object-fit: cover;
       border-radius: 25px;
     }
 
@@ -232,10 +275,22 @@
       font-weight: 700;
     }
 
-    .care-step h3 { font-size: 14px; color: var(--service-green); }
-    .care-step p { font-size: 11px; color: var(--service-muted); margin-top: 5px; }
+    .care-step h3 {
+      font-size: 14px;
+      color: var(--service-green);
+    }
 
-    .why-section { background: #f1f6ef; }
+    .care-step p {
+      font-size: 11px;
+      color: var(--service-muted);
+      margin-top: 5px;
+    }
+
+    /* WHY CHOOSE US */
+
+    .why-section {
+      background: #f1f6ef;
+    }
 
     .why-grid {
       display: grid;
@@ -250,11 +305,27 @@
       text-align: center;
     }
 
-    .why-card span { font-size: 30px; }
-    .why-card h3 { margin: 12px 0 8px; font-size: 14px; color: var(--service-green); }
-    .why-card p { font-size: 11px; color: var(--service-muted); }
+    .why-card span {
+      font-size: 30px;
+    }
 
-    .faq-list { max-width: 850px; margin: 0 auto; }
+    .why-card h3 {
+      margin: 12px 0 8px;
+      font-size: 14px;
+      color: var(--service-green);
+    }
+
+    .why-card p {
+      font-size: 11px;
+      color: var(--service-muted);
+    }
+
+    /* FAQ */
+
+    .faq-list {
+      max-width: 850px;
+      margin: 0 auto;
+    }
 
     .faq-item {
       margin-bottom: 13px;
@@ -284,6 +355,7 @@
       color: var(--service-orange);
       font-size: 20px;
       flex-shrink: 0;
+      transition: transform .3s;
     }
 
     .faq-answer {
@@ -294,8 +366,15 @@
       line-height: 1.9;
     }
 
-    .faq-item.active .faq-answer { display: block; }
-    .faq-item.active .faq-question span { transform: rotate(45deg); }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    /* CTA */
 
     .service-cta {
       margin: 0 5% 60px;
@@ -314,7 +393,13 @@
       line-height: 1.35;
     }
 
-    .service-cta p { color: #d3e5dc; font-size: 12px; margin-top: 10px; }
+    .service-cta p {
+      color: #d3e5dc;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    /* ANIMATION */
 
     .service-reveal {
       opacity: 0;
@@ -322,36 +407,102 @@
       transition: opacity .6s ease, transform .6s ease;
     }
 
-    .service-reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 950px) {
-      .service-detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .service-hero { padding: 50px 5%; gap: 30px; }
+    .service-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
+    /* TABLET */
+
+    @media (max-width: 950px) {
+      .service-detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-hero {
+        padding: 50px 5%;
+        gap: 30px;
+      }
+    }
+
+    /* MOBILE */
+
     @media (max-width: 760px) {
-      .service-hero { grid-template-columns: 1fr; padding: 40px 6%; gap: 35px; }
-      .service-hero-image { height: 290px; margin: 0 8px; }
-      .service-float { left: -8px; }
-      .service-detail-grid { grid-template-columns: 1fr; gap: 15px; }
-      .service-detail-card { padding: 23px; }
-      .care-section { grid-template-columns: 1fr; gap: 30px; }
-      .care-image { height: 280px; }
-      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .service-cta { flex-direction: column; align-items: flex-start; padding: 30px 23px; }
+      .service-hero {
+        grid-template-columns: 1fr;
+        padding: 40px 6%;
+        gap: 35px;
+      }
+
+      .service-hero-image {
+        height: 290px;
+        margin: 0 8px;
+      }
+
+      .service-float {
+        left: -8px;
+      }
+
+      .service-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .service-detail-card {
+        padding: 23px;
+      }
+
+      .service-card-heading {
+        gap: 13px;
+      }
+
+      .service-card-heading h3 {
+        font-size: 15px;
+      }
+
+      .care-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .care-image {
+        height: 280px;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .service-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 23px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .service-reveal { opacity: 1; transform: none; transition: none; }
-      *, *::before, *::after { scroll-behavior: auto !important; }
+      .service-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- SAME NAVBAR -->
+  <!-- NAVBAR -->
+
   <header class="header">
     <a href="index.html#home" class="logo">
       <span class="logo-icon">🐾</span>
@@ -367,25 +518,28 @@
       <a href="service.html" aria-current="page">Services</a>
       <a href="gallary.html">Gallery</a>
       <a href="contact.html">Contact</a>
-    
 
-    <div class="header-actions">
-      <a href="appointment.html" class="btn btn-primary">
-        ▣ Book Appointment
-      </a>
-    </div>
+      <div class="header-actions">
+        <a href="appointment.html" class="btn btn-primary">
+          ▣ Book Appointment
+        </a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="service-hero">
-      <div class="service-hero-content">
-        
 
+    <!-- HERO SECTION -->
+
+    <section class="service-hero">
+
+      <div class="service-hero-content">
         <span class="eyebrow">🐾 Care for Every Paw</span>
 
-        <h1>Complete Care for<br><span>Your Best Friend.</span></h1>
+        <h1>
+          Complete Care for<br>
+          <span>Your Best Friend.</span>
+        </h1>
 
         <p>
           From routine health checkups to advanced diagnostics and
@@ -393,7 +547,6 @@
           health at every stage of life.
         </p>
 
-        
         <a href="appointment.html" class="btn btn-outline">
           Book a Visit
         </a>
@@ -405,15 +558,19 @@
           alt="Veterinary professional caring for a pet"
           fetchpriority="high"
         >
+
         <div class="service-float">
           <strong>🐾 Their Health. Our Priority.</strong>
           <p>Thoughtful care for your furry family.</p>
         </div>
       </div>
+
     </section>
 
     <!-- SERVICES GRID -->
+
     <section class="section" id="all-services">
+
       <div class="services-intro service-reveal">
         <span class="tag">OUR EXPERTISE</span>
         <h2>Everything Your Pet Needs</h2>
@@ -422,119 +579,202 @@
 
       <div class="service-detail-grid">
 
+        <!-- SERVICE 1 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">🩺</div>
-          <h3>General Health Checkup</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">🩺</div>
+            <h3>General Health Checkup</h3>
+          </div>
+
           <p>Routine wellness visits help assess your pet's overall health and identify potential concerns early.</p>
+
           <ul>
             <li>Physical health examination</li>
             <li>Weight and wellness assessment</li>
             <li>Preventive care guidance</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Book a Checkup →</a>
+
+          <a href="appointment.html" class="service-link">Book a Checkup →</a>
+
         </article>
 
+        <!-- SERVICE 2 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">💉</div>
-          <h3>Vaccination</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">💉</div>
+            <h3>Vaccination</h3>
+          </div>
+
           <p>Get guidance on age-appropriate vaccinations based on your pet's needs and veterinary advice.</p>
+
           <ul>
             <li>Vaccination schedule guidance</li>
             <li>Health history review</li>
             <li>Post-vaccination advice</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Book Vaccination →</a>
+
+          <a href="appointment.html" class="service-link">Book Vaccination →</a>
+
         </article>
 
+        <!-- SERVICE 3 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">🔬</div>
-          <h3>Diagnostics & Testing</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">🔬</div>
+            <h3>Diagnostics & Testing</h3>
+          </div>
+
           <p>Appropriate diagnostic tests can help veterinarians understand symptoms and plan further care.</p>
+
           <ul>
             <li>Recommended laboratory tests</li>
             <li>Diagnostic consultation</li>
             <li>Results and care discussion</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Request Consultation →</a>
+
+          <a href="appointment.html" class="service-link">Request Consultation →</a>
+
         </article>
 
+        <!-- SERVICE 4 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">🏥</div>
-          <h3>Surgery & Procedures</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">🏥</div>
+            <h3>Surgery & Procedures</h3>
+          </div>
+
           <p>Veterinary assessment and suitable surgical care with attention to safety and recovery.</p>
+
           <ul>
             <li>Pre-procedure evaluation</li>
             <li>Veterinary surgical consultation</li>
             <li>Recovery instructions</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Consult Our Team →</a>
+
+          <a href="appointment.html" class="service-link">Consult Our Team →</a>
+
         </article>
 
+        <!-- SERVICE 5 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">🦷</div>
-          <h3>Pet Dental Care</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">🦷</div>
+            <h3>Pet Dental Care</h3>
+          </div>
+
           <p>Oral health checks and professional guidance help maintain healthy teeth and gums.</p>
+
           <ul>
             <li>Oral health examination</li>
             <li>Dental hygiene guidance</li>
             <li>Recommended dental treatment</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Book Dental Checkup →</a>
+
+          <a href="appointment.html" class="service-link">Book Dental Checkup →</a>
+
         </article>
 
+        <!-- SERVICE 6 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">🥣</div>
-          <h3>Nutrition & Diet Advice</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">🥣</div>
+            <h3>Nutrition & Diet Advice</h3>
+          </div>
+
           <p>Help your pet get suitable nutrition according to age, lifestyle and individual health needs.</p>
+
           <ul>
             <li>Diet and feeding guidance</li>
             <li>Weight management advice</li>
             <li>Life-stage nutrition support</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Discuss Nutrition →</a>
+
+          <a href="appointment.html" class="service-link">Discuss Nutrition →</a>
+
         </article>
 
+        <!-- SERVICE 7 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">✂️</div>
-          <h3>Grooming & Hygiene</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">✂️</div>
+            <h3>Grooming & Hygiene</h3>
+          </div>
+
           <p>Routine grooming and hygiene support help keep pets clean and comfortable.</p>
+
           <ul>
             <li>Coat and skin care guidance</li>
             <li>Nail and hygiene maintenance</li>
             <li>Breed-appropriate grooming advice</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Enquire About Grooming →</a>
+
+          <a href="appointment.html" class="service-link">Enquire About Grooming →</a>
+
         </article>
 
+        <!-- SERVICE 8 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">❤️‍🩹</div>
-          <h3>Emergency Care</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">❤️‍🩹</div>
+            <h3>Emergency Care</h3>
+          </div>
+
           <p>Contact a veterinary professional promptly when your pet shows signs of a serious or sudden illness.</p>
+
           <ul>
             <li>Urgent veterinary assessment</li>
             <li>Guidance on immediate next steps</li>
             <li>Referral support when required</li>
           </ul>
+
           <a href="tel:+919876543210" class="service-link">Call the Clinic →</a>
+
         </article>
 
+        <!-- SERVICE 9 -->
+
         <article class="service-detail-card service-reveal">
-          <div class="icon-box">🐾</div>
-          <h3>Pet Wellness Guidance</h3>
+
+          <div class="service-card-heading">
+            <div class="icon-box">🐾</div>
+            <h3>Pet Wellness Guidance</h3>
+          </div>
+
           <p>Practical guidance to help pet parents support daily wellbeing and healthy routines.</p>
+
           <ul>
             <li>Age-specific care advice</li>
             <li>Exercise and activity guidance</li>
             <li>Ongoing wellness planning</li>
           </ul>
-          <a href="index.html#appointment" class="service-link">Plan a Visit →</a>
+
+          <a href="appointment.html" class="service-link">Plan a Visit →</a>
+
         </article>
 
       </div>
     </section>
 
     <!-- HOW WE CARE -->
+
     <section class="section care-section">
+
       <div class="care-image service-reveal">
         <img
           src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=900&q=85"
@@ -544,8 +784,11 @@
       </div>
 
       <div class="care-content service-reveal">
+
         <span class="eyebrow">THE PAWCARE EXPERIENCE</span>
+
         <h2>Care That Begins With Understanding</h2>
+
         <p>
           Every pet is different. We aim to make each visit comfortable,
           explain the next steps clearly and help you understand your
@@ -576,14 +819,17 @@
           </div>
         </div>
 
-        <a href="index.html#appointment" class="btn btn-primary">
+        <a href="appointment.html" class="btn btn-primary">
           Schedule Your Visit →
         </a>
+
       </div>
     </section>
 
     <!-- WHY CHOOSE US -->
+
     <section class="section why-section">
+
       <div class="services-intro service-reveal">
         <span class="tag">WHY PAWCARE?</span>
         <h2>Care You Can Feel Good About</h2>
@@ -591,6 +837,7 @@
       </div>
 
       <div class="why-grid">
+
         <article class="why-card service-reveal">
           <span>💚</span>
           <h3>Compassion First</h3>
@@ -614,11 +861,14 @@
           <h3>Clear Communication</h3>
           <p>Understand your pet's care plan and next steps.</p>
         </article>
+
       </div>
     </section>
 
     <!-- FAQ -->
+
     <section class="section">
+
       <div class="services-intro service-reveal">
         <span class="tag">COMMON QUESTIONS</span>
         <h2>Frequently Asked Questions</h2>
@@ -678,7 +928,9 @@
     </section>
 
     <!-- FINAL CTA -->
+
     <section class="service-cta">
+
       <div>
         <h2>Because They're More Than Pets.<br>They're Family.</h2>
         <p>Take the next step towards your pet's health and happiness.</p>
@@ -687,17 +939,23 @@
       <a href="appointment.html" class="btn btn-primary">
         Book an Appointment →
       </a>
+
     </section>
+
   </main>
 
-  <!-- SAME FOOTER -->
+  <!-- FOOTER -->
+
   <footer class="footer" id="contact">
+
     <div class="footer-main">
+
       <div>
         <a href="index.html" class="logo footer-logo">
           <span class="logo-icon">🐾</span>
           <span>Paw<span>Care</span><small>Pet Clinic & Care</small></span>
         </a>
+
         <p>Compassionate care for the pets who make our lives better.</p>
       </div>
 
@@ -722,21 +980,26 @@
         <p>Sunday: 10 AM – 4 PM</p>
         <p>Emergency: Call before visiting</p>
       </div>
+
     </div>
 
     <div class="footer-bottom">
       <p>© <span id="year"></span> PawCare Pet Clinic. All rights reserved.</p>
       <a href="#top" id="backToTop">Back to top ↑</a>
     </div>
+
   </footer>
 
   <script>
-    // Mobile navbar
+
+    // MOBILE NAVBAR
+
     const menuToggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
 
     menuToggle.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("open");
+
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.textContent = isOpen ? "✕" : "☰";
     });
@@ -749,45 +1012,72 @@
       });
     });
 
-    // FAQ accordion
+    // FAQ ACCORDION
+
     document.querySelectorAll(".faq-question").forEach(button => {
+
       button.addEventListener("click", () => {
+
         const item = button.closest(".faq-item");
         const isOpen = item.classList.toggle("active");
 
         button.setAttribute("aria-expanded", String(isOpen));
+
       });
+
     });
 
-    // Footer year
+    // FOOTER YEAR
+
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    // Back to top
+    // BACK TO TOP
+
     document.getElementById("backToTop").addEventListener("click", event => {
+
       event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
     });
 
-    // Reveal elements on scroll
+    // REVEAL ELEMENTS ON SCROLL
+
     if ("IntersectionObserver" in window) {
+
       const observer = new IntersectionObserver(entries => {
+
         entries.forEach(entry => {
+
           if (entry.isIntersecting) {
+
             entry.target.classList.add("visible");
             observer.unobserve(entry.target);
+
           }
+
         });
-      }, { threshold: 0.12 });
+
+      }, {
+        threshold: 0.12
+      });
 
       document.querySelectorAll(".service-reveal").forEach(element => {
         observer.observe(element);
       });
+
     } else {
+
       document.querySelectorAll(".service-reveal").forEach(element => {
         element.classList.add("visible");
       });
+
     }
+
   </script>
 
 </body>
