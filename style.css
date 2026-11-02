@@ -966,3 +966,44 @@ main > section.section {
     margin-bottom: 5px !important;
   }
 }
+/* Mobile Navbar Center Alignment */
+@media (max-width: 768px) {
+
+  .header {
+    position: relative;
+  }
+
+  .nav {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav > a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav .header-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav .header-actions .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
